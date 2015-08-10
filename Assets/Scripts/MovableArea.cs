@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MovableArea : MonoBehaviour {
 
+	Player player;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -12,4 +14,5 @@ public class MovableArea : MonoBehaviour {
 	void Update () {
 	
 	}
+	
 }
