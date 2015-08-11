@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
 	private float angle;
 	private float angleDirection = 1.0f;
 	private float angleSpeed = 3.0f;
-	private float maxAngle = 30.0f;
+	private float maxAngle = 10.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
 			angleDirection *= -1.0f;
 		}
 
-		float rad = Mathf.Deg2Rad * angle;
+		float rad = Mathf.Deg2Rad * angle * 3.0f;
 		if (Input.GetMouseButton (0)) {
 			r2d.velocity = new Vector2(-Mathf.Sin(rad) * 5.0f, speed);
 			angle = originalAngle;
