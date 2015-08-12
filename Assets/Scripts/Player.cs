@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 	public float speed = 1.0f;
 	private float angle;
 	private float angleDirection = 1.0f;
-	private float angleSpeed = 3.0f;
+	private float angleSpeed = 1.0f;
 	private float maxAngle = 10.0f;
 
 	// Use this for initialization
@@ -24,8 +24,10 @@ public class Player : MonoBehaviour {
 		if (-maxAngle < angle && angle < maxAngle) {
 			angle += angleDirection * 0.8f;
 		} else {
+			// Switch Back
 			angle = (maxAngle - angleSpeed) * angleDirection;
 			angleDirection *= -1.0f;
+			originalAngle = angle;
 		}
 
 		float rad = Mathf.Deg2Rad * angle * 3.0f;
@@ -37,31 +39,6 @@ public class Player : MonoBehaviour {
 		}
 
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
-//		Vector2 direction = new Vector2 (-originalVx, 3.0f);
-//		Vector2 vector = new Vector2 (originalVx, 0);
-//
-//		if (isInArea) {
-//
-//			vector = new Vector2(originalVx, range(originalVy - speed * 0.1f, -speed * 0.1f, -speed));
-//		}
-//		// Long press
-//		 if (Input.GetMouseButton (0)) {
-//			float posX = r2d.position.x;
-//			float aimX = 0.0f;
-//			if (-2.0f <= posX && posX < 2.0f) { 
-//				aimX = Random.Range(-0.1f, 0.1f);
-//			}
-//			// 移動する向きを求める
-//			direction = new Vector2 (aimX, 1.0f).normalized;
-//			// 移動
-//			vector = direction * speed;
-//		}
-//		r2d.velocity = vector;
-//
-//		float targetAngle = Mathf.Atan2 (r2d.velocity.x * 10.0f, 2.0f) * Mathf.Rad2Deg;
-//		angle = Mathf.Lerp (angle, targetAngle, Time.deltaTime * 10.0f);
-//		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, targetAngle);
-
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
