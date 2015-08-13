@@ -24,7 +24,7 @@ public class Emitter : MonoBehaviour
 			
 			// WaveをEmitterの子要素にする
 			wave.transform.parent = transform;
-			
+
 			// Waveの子要素のEnemyが全て削除されるまで待機する
 			while (wave.transform.childCount != 0) {
 				yield return new WaitForEndOfFrame ();

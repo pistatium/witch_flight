@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseEnemy : MonoBehaviour {
+[RequireComponent(typeof(Rigidbody2D))]
+public abstract class BaseEnemy : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	protected Rigidbody2D r2d;
+
+	public void Start() {
+		r2d = GetComponent<Rigidbody2D> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (transform.position.y < -8.0f) {
+
+	public void Update () {
+		checkAndDestroy (transform.position);	
+	}
+
+	void checkAndDestroy(Vector3 position) {
+		if (position.y < -7.0f || Mathf.Abs (position.x) > 6.0f) {
 			Destroy(gameObject);
 		}
 	}
