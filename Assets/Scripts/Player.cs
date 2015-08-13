@@ -32,10 +32,14 @@ public class Player : MonoBehaviour {
 
 		float rad = Mathf.Deg2Rad * angle * 3.0f;
 		if (Input.GetMouseButton (0)) {
-			r2d.velocity = new Vector2(-Mathf.Sin(rad) * 5.0f, speed);
+			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed;
 			angle = originalAngle;
 		} else {
-			r2d.velocity = new Vector2(0, -speed * 0.5f);
+			if (transform.position.y >= -4.0f) {
+				r2d.velocity = new Vector2(0, -1) * (speed * 0.5f);
+			} else {
+				r2d.velocity = new Vector2(0, 0);
+			}
 		}
 
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
