@@ -4,7 +4,9 @@ using System.Collections;
 public class Emitter : MonoBehaviour
 {
 	// Waveプレハブを格納する
+	public GameObject player;
 	public GameObject[] waves;
+	public GameObject randomEnemy;
 	
 	// 現在のWave
 	private int currentWave;
@@ -36,8 +38,9 @@ public class Emitter : MonoBehaviour
 			// 格納されているWaveを全て実行したらcurrentWaveを0にする（最初から -> ループ）
 			if (waves.Length <= ++currentWave) {
 				currentWave = 0;
+				GameObject re = (GameObject)Instantiate(randomEnemy, transform.position, Quaternion.identity);
+				re.GetComponent<RandomEnemy>().initFromScript(player);
 			}
-			
 		}
 	}
 }
