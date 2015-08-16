@@ -20,7 +20,7 @@ public class RandomEnemy : BaseEnemy {
 		if (count++ % 400 == 0) {
 			count = 0;
 			Vector2 direct = (player.transform.position - transform.position).normalized;
-			base.r2d.velocity = (direct + new Vector2 (Random.Range (-1.0f, 1.0f), Random.Range (-1.0f, 1.0f))).normalized * speed;
+			base.r2d.velocity = base.r2d.velocity * 0.3f + (direct + new Vector2 (Random.Range (-1.0f, 1.0f), Random.Range (-1.0f, 1.0f))).normalized * speed;
 		}
 	}
 }
