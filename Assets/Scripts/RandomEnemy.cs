@@ -18,6 +18,8 @@ public class RandomEnemy : BaseEnemy {
 		if (player == null) {
 			return;
 		}
+		base.Update ();
+
 		count++;
 
 		if (count % 100 == 0) {
