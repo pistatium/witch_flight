@@ -7,7 +7,7 @@ public class SideEnemy :BaseEnemy {
 	// Use this for initialization
 	public void Start () {
 		base.Start ();
-		float randX = Random.Range (-1, -1);
+		float randX = Random.Range (-0.3f, -0.3f);
 		toRight = (randX > 0);
 		if (toRight) {
 			transform.position = new Vector2 (transform.position.x + randX, Random.Range (-0.3f, 0.5f));

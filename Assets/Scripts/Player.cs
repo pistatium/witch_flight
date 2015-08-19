@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
-		Application.LoadLevel ("Main");
+		//Application.LoadLevel ("Main");
 		Invoke("Reload", 1.5f);
 		Destroy (gameObject);
 	}
