@@ -4,7 +4,6 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	private bool isInArea = true;
 	public Rigidbody2D r2d;
 	public float speed = 1.0f;
 	private float angle;
@@ -43,10 +42,21 @@ public class Player : MonoBehaviour {
 		}
 
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
+		float x = transform.position.x;
+		if (x < -3.0 || 3.0 < x) {
+			transform.position = new Vector2(x * 0.97f, transform.position.y);
+		}
+	}
+	
+	void OnTriggerEnter2D(Collider2D c){
+		Application.LoadLevel ("Main");
+		Invoke("Reload", 1.5f);
+		Destroy (gameObject);
 	}
 
-	void OnTriggerEnter2D(Collider2D c){
-		isInArea = true;
+	void Reload() {
+		Application.LoadLevel ("Main");
+		Debug.Log("Delay call");
 	}
 
 	float range(float x, float max, float min) {
@@ -61,6 +71,5 @@ public class Player : MonoBehaviour {
 
 
 	void OnTriggerExit2D(Collider2D c){
-		isInArea = false;
 	}
 }
