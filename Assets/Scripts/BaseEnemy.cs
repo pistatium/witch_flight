@@ -15,7 +15,7 @@ public abstract class BaseEnemy : MonoBehaviour {
 	}
 
 	void checkAndDestroy(Vector3 position) {
-		if (position.y < -7.0f || Mathf.Abs (position.x) > 7.0f) {
+		if (position.y < -6.0f || Mathf.Abs (position.x) > 6.0f) {
 			Destroy(gameObject);
 		}
 	}

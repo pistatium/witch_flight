@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 418306}
   - 212: {fileID: 21219792}
+  - 58: {fileID: 5885446}
   m_Layer: 9
   m_Name: Stone (2)
   m_TagString: Untagged
@@ -59,6 +60,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423152}
   - 212: {fileID: 21217502}
+  - 58: {fileID: 5863466}
   m_Layer: 9
   m_Name: Stone
   m_TagString: Untagged
@@ -75,6 +77,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458122}
   - 212: {fileID: 21269186}
+  - 58: {fileID: 5899880}
   m_Layer: 9
   m_Name: Stone (1)
   m_TagString: Untagged
@@ -93,7 +96,6 @@ GameObject:
   - 212: {fileID: 21248788}
   - 114: {fileID: 11443348}
   - 50: {fileID: 5096734}
-  - 61: {fileID: 6133318}
   m_Layer: 9
   m_Name: Side
   m_TagString: Untagged
@@ -124,8 +126,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .600000024, y: .0399999619, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 451270}
   m_RootOrder: 2
@@ -136,8 +138,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.970000029, y: .0199999996, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.5, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 451270}
   m_RootOrder: 0
@@ -162,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 195264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.80000019, y: 0, z: 0}
-  m_LocalScale: {x: 1.60000002, y: 1.60000002, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 423152}
   - {fileID: 458122}
@@ -176,8 +178,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.150000006, y: .0399999991, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -.300000012, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 451270}
   m_RootOrder: 1
@@ -252,19 +254,45 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .25
---- !u!61 &6133318
-BoxCollider2D:
+--- !u!58 &5863466
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195264}
+  m_GameObject: {fileID: 153034}
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.171983361, y: .0286638737}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.14655519, y: .522267818}
+  m_Radius: .200000003
+--- !u!58 &5885446
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103744}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .200000003
+--- !u!58 &5899880
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181148}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: .200000003
 --- !u!114 &11437472
 MonoBehaviour:
   m_ObjectHideFlags: 1
