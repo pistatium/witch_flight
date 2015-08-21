@@ -43,20 +43,18 @@ public class Player : MonoBehaviour {
 
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
 		float x = transform.position.x;
+
 		if (x < -3.0 || 3.0 < x) {
 			transform.position = new Vector2(x * 0.97f, transform.position.y);
+		}
+		if (transform.position.y > 4.5f) {
+			transform.position = new Vector2(transform.position.x, transform.position.y * 0.97f);
 		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
-		//Application.LoadLevel ("Main");
-		Invoke("Reload", 1.5f);
-		Destroy (gameObject);
-	}
-
-	void Reload() {
 		Application.LoadLevel ("Main");
-		Debug.Log("Delay call");
+		Destroy (gameObject);
 	}
 
 	float range(float x, float max, float min) {
