@@ -4,8 +4,10 @@ using System.Collections;
 public class SideEnemy :BaseEnemy {
 
 	private bool toRight = false; 
+	public float speed = 0.3f;
+
 	// Use this for initialization
-	public void Start () {
+	new public void Start () {
 		base.Start ();
 		float randX = Random.Range (-0.3f, -0.3f);
 		float randY = Random.Range (-4.0f, 0.0f);
@@ -18,12 +20,12 @@ public class SideEnemy :BaseEnemy {
 	}
 	
 	// Update is called once per frame
-	public void Update () {
+	new public void Update () {
 		base.Update ();
 		if (toRight) {
-			base.r2d.velocity = new Vector2 (2, -0.5f);
+			base.r2d.velocity = new Vector2 (2, -0.5f) * speed * Time.deltaTime;
 		} else {
-			base.r2d.velocity = new Vector2 (-2, -0.5f);
+			base.r2d.velocity = new Vector2 (-2, -0.5f) * speed * Time.deltaTime;
 		}
 	}
 }

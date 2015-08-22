@@ -19,8 +19,7 @@ public class Emitter : MonoBehaviour
 			yield break;
 		}
 		
-		while (true) {
-			
+		while (true) {	
 			// Waveを作成する
 			GameObject wave = (GameObject)Instantiate (waves [currentWave], transform.position, Quaternion.identity);
 			

@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
 	public float speed = 1.0f;
 	private float angle;
 	private float angleDirection = 1.0f;
-	private float angleSpeed = 1.0f;
+	public float angleSpeed = 1.0f;
 	private float maxAngle = 10.0f;
 
 	// Use this for initialization
@@ -21,21 +21,21 @@ public class Player : MonoBehaviour {
 		float originalAngle = angle;
 
 		if (-maxAngle < angle && angle < maxAngle) {
-			angle += angleDirection * 0.8f;
+			angle += angleDirection * angleSpeed * Time.deltaTime;
 		} else {
 			// Switch Back
-			angle = (maxAngle - angleSpeed) * angleDirection;
+			angle = (maxAngle - angleSpeed * Time.deltaTime) * angleDirection;
 			angleDirection *= -1.0f;
 			originalAngle = angle;
 		}
 
 		float rad = Mathf.Deg2Rad * angle * 3.0f;
 		if (Input.GetMouseButton (0)) {
-			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed;
+			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed * Time.deltaTime;
 			angle = originalAngle;
 		} else {
 			if (transform.position.y >= -4.0f) {
-				r2d.velocity = new Vector2(0, -1) * (speed * 0.5f);
+				r2d.velocity = new Vector2(0, -1) * (speed * Time.deltaTime * 0.5f);
 			} else {
 				r2d.velocity = new Vector2(0, 0);
 			}

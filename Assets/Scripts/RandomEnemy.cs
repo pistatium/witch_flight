@@ -14,7 +14,7 @@ public class RandomEnemy : BaseEnemy {
 	}
 
 	// Update is called once per frame
-	void Update () {
+	new void Update () {
 		if (player == null) {
 			return;
 		}
@@ -22,10 +22,9 @@ public class RandomEnemy : BaseEnemy {
 
 		count++;
 
-		if (count % 100 == 0) {
-			//count = 0;
-			Vector2 toPlayer = (player.transform.position - transform.position).normalized;
-			direct = (toPlayer + new Vector2 (Random.Range (-1.0f, 1.0f), Random.Range (-1.0f, 1.0f))).normalized * speed;
+		if (count % 60 == 1) {
+			Vector2 toPlayer = (player.transform.position - transform.position);
+			direct = (toPlayer + new Vector2 (Random.Range (-0.5f, 0.5f), Random.Range (-0.5f, 0.5f))).normalized * speed * Time.deltaTime;
 		}
 		base.r2d.velocity = base.r2d.velocity * 0.8f + direct;
 	}
