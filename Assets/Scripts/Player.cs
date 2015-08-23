@@ -80,9 +80,22 @@ public class Player : MonoBehaviour {
 			//				}
 			//			});
 		}
-		Application.LoadLevel ("Main");
-		Destroy (gameObject);
+		enabled = false;
+		StartCoroutine(share ());
+		//Application.LoadLevel ("Main");
+		//Destroy (gameObject);
 	}
+
+	IEnumerator share() {
+		Application.CaptureScreenshot ("screenShot.png");		
+		yield return new WaitForSeconds (1.0f);
+		
+		string text = "シェアする内容";
+		string url = "http://google.com/";
+		string texture_url = Application.persistentDataPath + "/screenShot.png";		
+		SocialConnector.Share (text, url, texture_url);
+	}
+
 	void OnTriggerExit2D(Collider2D c){
 	}
 }
