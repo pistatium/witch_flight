@@ -49,8 +49,8 @@ public class Player : MonoBehaviour {
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
 		float x = transform.position.x;
 
-		if (x < -3.0 || 3.0 < x) {
-			transform.position = new Vector2(x * 0.97f, transform.position.y);
+		if (x < -3.3 || 3.3 < x) {
+			dead ();
 		}
 		if (transform.position.y > 4.5f) {
 			transform.position = new Vector2(transform.position.x, transform.position.y * 0.97f);
@@ -58,16 +58,7 @@ public class Player : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
-		if(Advertisement.isReady ()) {
-//			Advertisement.Show(null, new ShowOptions {
-//				pause = true,
-//				resultCallback = result => {
-//					Application.LoadLevel ("Main");
-//				}
-//			});
-		}
-		Application.LoadLevel ("Main");
-		Destroy (gameObject);
+		dead ();
 	}
 
 	float range(float x, float max, float min) {
@@ -80,7 +71,18 @@ public class Player : MonoBehaviour {
 		return x;
 	}
 
-
+	void dead() {
+		if(Advertisement.isReady ()) {
+			//			Advertisement.Show(null, new ShowOptions {
+			//				pause = true,
+			//				resultCallback = result => {
+			//					Application.LoadLevel ("Main");
+			//				}
+			//			});
+		}
+		Application.LoadLevel ("Main");
+		Destroy (gameObject);
+	}
 	void OnTriggerExit2D(Collider2D c){
 	}
 }

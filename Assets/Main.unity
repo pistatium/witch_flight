@@ -295,7 +295,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1146138709}
   - 50: {fileID: 1146138711}
-  - 58: {fileID: 1146138710}
   - 114: {fileID: 1146138712}
   m_Layer: 8
   m_Name: Player
@@ -317,19 +316,6 @@ Transform:
   - {fileID: 1669981575}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!58 &1146138710
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146138708}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: .150000006
 --- !u!50 &1146138711
 Rigidbody2D:
   serializedVersion: 2
@@ -418,6 +404,7 @@ GameObject:
   - 4: {fileID: 1669981575}
   - 212: {fileID: 1669981574}
   - 95: {fileID: 1669981573}
+  - 61: {fileID: 1669981576}
   m_Layer: 0
   m_Name: witch
   m_TagString: Untagged
@@ -480,6 +467,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1146138709}
   m_RootOrder: 0
+--- !u!61 &1669981576
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669981572}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: .200000003}
+  serializedVersion: 2
+  m_Size: {x: .200000003, y: 1}
 --- !u!1 &1687697510
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,10 +528,10 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 900, y: 600}
-  m_ScreenMatchMode: 1
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
+  m_ReferenceResolution: {x: 1000, y: 700}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: .360000014
+  m_PhysicalUnit: 1
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 569998857}
+  scoreLabel: {fileID: 2137597302}
 --- !u!4 &1955195435
 Transform:
   m_ObjectHideFlags: 0
@@ -695,7 +696,7 @@ GameObject:
   - 222: {fileID: 2137597303}
   - 114: {fileID: 2137597302}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,7 +744,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: '123
+
+'
 --- !u!222 &2137597303
 CanvasRenderer:
   m_ObjectHideFlags: 0
