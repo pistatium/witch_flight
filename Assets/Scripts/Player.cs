@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.Advertisements;
 
 public class Player : MonoBehaviour {
 
 	public Rigidbody2D r2d;
+	public Animator anim;
+	public GameObject splite;
 	public float speed = 1.0f;
 	private float angle;
 	private float angleDirection = 1.0f;
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		r2d = GetComponent<Rigidbody2D> ();
+		anim = splite.GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -33,12 +36,14 @@ public class Player : MonoBehaviour {
 		if (Input.GetMouseButton (0)) {
 			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed * Time.deltaTime;
 			angle = originalAngle;
+			anim.SetBool("is_dash", true);
 		} else {
 			if (transform.position.y >= -4.0f) {
 				r2d.velocity = new Vector2(0, -1) * (speed * Time.deltaTime * 0.5f);
 			} else {
 				r2d.velocity = new Vector2(0, 0);
 			}
+			anim.SetBool("is_dash", false);
 		}
 
 		transform.localRotation = Quaternion.Euler (0.0f, 0.0f, angle);
@@ -53,6 +58,14 @@ public class Player : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D c){
+		if(Advertisement.isReady ()) {
+//			Advertisement.Show(null, new ShowOptions {
+//				pause = true,
+//				resultCallback = result => {
+//					Application.LoadLevel ("Main");
+//				}
+//			});
+		}
 		Application.LoadLevel ("Main");
 		Destroy (gameObject);
 	}
