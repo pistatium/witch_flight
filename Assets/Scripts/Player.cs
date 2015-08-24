@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Advertisements;
+
 
 public class Player : MonoBehaviour {
 
 	public Rigidbody2D r2d;
 	public Animator anim;
 	public GameObject splite;
+	public GameController gameController;
 	public float speed = 1.0f;
 	private float angle;
 	private float angleDirection = 1.0f;
@@ -64,38 +65,16 @@ public class Player : MonoBehaviour {
 	float range(float x, float max, float min) {
 		if (max > x) {
 			return max;
-		}
-		if (min < x) {
+		}		if (min < x) {
 			return min;
 		}
 		return x;
 	}
 
 	void dead() {
-		if(Advertisement.isReady ()) {
-			//			Advertisement.Show(null, new ShowOptions {
-			//				pause = true,
-			//				resultCallback = result => {
-			//					Application.LoadLevel ("Main");
-			//				}
-			//			});
-		}
-		enabled = false;
-		StartCoroutine(share ());
-		//Application.LoadLevel ("Main");
-		//Destroy (gameObject);
-	}
+		gameController.gameover ();
+		Destroy (gameObject);
 
-	IEnumerator share() {
-		Application.CaptureScreenshot ("screenShot.png");		
-		yield return new WaitForSeconds (1.0f);
-		
-		string text = "シェアする内容";
-		string url = "http://google.com/";
-		string texture_url = Application.persistentDataPath + "/screenShot.png";		
-		SocialConnector.Share (text, url, texture_url);
 	}
-
-	void OnTriggerExit2D(Collider2D c){
-	}
+	
 }
