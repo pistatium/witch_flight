@@ -17,10 +17,10 @@ public class ScreenShotBridge
 	public static IEnumerator SaveScreenShot(string fileName,bool isScreenShotWithDateTime,ScreenShotDelegate callBack)
 	{
 		yield return new WaitForEndOfFrame ();
-		Application.CaptureScreenshot (fileName+".png");
+		Application.CaptureScreenshot (fileName);
 		if (Application.platform == RuntimePlatform.Android) {
 			#if UNITY_ANDROID
-			string origin = System.IO.Path.Combine (Application.persistentDataPath, fileName + ".png");
+			string origin = System.IO.Path.Combine (Application.persistentDataPath, fileName);
 			string destination = getCapturePath(fileName);
 			if (!System.IO.Directory.Exists ("/sdcard/witch_flight")) {
 					System.IO.Directory.CreateDirectory (destination);
