@@ -8,6 +8,7 @@ public class ScreenShotBridge
 	public static IEnumerator SaveScreenShot(string fileName,string albumName,bool isScreenShotWithDateTime,ScreenShotDelegate callBack)
 	{
 		yield return new WaitForEndOfFrame ();
+		#if UNITY_ANDROID
 		Application.CaptureScreenshot (fileName+".png");
 		if (Application.platform == RuntimePlatform.Android) {
 						string origin = System.IO.Path.Combine (Application.persistentDataPath, fileName + ".png");
@@ -33,5 +34,6 @@ public class ScreenShotBridge
 						}
 				}
 		callBack(true);
+		#endif
 	}
 }
