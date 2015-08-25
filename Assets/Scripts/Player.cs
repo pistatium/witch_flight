@@ -72,9 +72,13 @@ public class Player : MonoBehaviour {
 	}
 
 	void dead() {
+		//  Capture Display on player dying.
+		StartCoroutine(ScreenShotBridge.SaveScreenShot("capture.png", false, afterCapture));
+	}
+
+	void afterCapture(bool isSuccess) {
 		gameController.gameover ();
 		Destroy (gameObject);
-
 	}
 	
 }

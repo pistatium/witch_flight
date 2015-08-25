@@ -18,21 +18,18 @@ public class GameController : BaseGameController {
 		gameOverPanel.transform.localScale = Vector3.zero;
 	}
 
-	// Use this for initialization
 	void Start () {
 		start_time = Time.time;
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		updateScore ();
 
-		// Android BackKey 
 		if (Application.platform == RuntimePlatform.Android)
 		{
 			if (Input.GetKey(KeyCode.Escape))
 			{
-				Application.Quit();
+				Application.LoadLevel ("HomeScene");
 				return;
 			}
 		}
@@ -54,6 +51,7 @@ public class GameController : BaseGameController {
 	public void onClickPlay() {
 		Application.LoadLevel ("Main");
 	}
+
 	public void gameover() {
 		string finalScore = scoreLabel.text;
 		scoreLabel.enabled = false;
@@ -67,16 +65,13 @@ public class GameController : BaseGameController {
 			//				}
 			//			});
 		}
-		//Destroy (gameObject);
-
 	}
 
 	IEnumerator share() {
-		Application.CaptureScreenshot ("screenShot.png");		
 		yield return new WaitForSeconds (1.0f);
-		string text = "シェアする内容";
-		string url = "http://google.com/";
-		string texture_url = Application.persistentDataPath + "/screenShot.png";		
+		string text = "#WitchFlight";
+		string url = "";
+		string texture_url = ScreenShotBridge.getCapturePath ("capture.png");		
 		SocialConnector.Share (text, url, texture_url);
 	}
 

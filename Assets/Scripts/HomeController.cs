@@ -10,7 +10,15 @@ public class HomeController : BaseGameController {
 	}
 	
 	void Update () {
-	
+		// Android BackKey 
+		if (Application.platform == RuntimePlatform.Android)
+		{
+			if (Input.GetKey(KeyCode.Escape))
+			{
+				Application.Quit();
+				return;
+			}
+		}
 	}
 
 	public void onClickStart() {
