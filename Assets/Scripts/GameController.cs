@@ -42,7 +42,7 @@ public class GameController : BaseGameController {
 	}
 
 	public void onClickShare() {
-		StartCoroutine(share ());
+		share();
 	}
 
 	public void onClickHome() {
@@ -67,8 +67,7 @@ public class GameController : BaseGameController {
 		}
 	}
 
-	IEnumerator share() {
-		yield return new WaitForSeconds (1.0f);
+	void share() {
 		string text = "#WitchFlight";
 		string url = "";
 		string texture_url = ScreenShotBridge.getCapturePath ("capture.png");		

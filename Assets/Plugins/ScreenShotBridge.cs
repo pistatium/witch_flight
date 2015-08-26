@@ -23,9 +23,12 @@ public class ScreenShotBridge
 			string origin = System.IO.Path.Combine (Application.persistentDataPath, fileName);
 			string destination = getCapturePath(fileName);
 			if (!System.IO.Directory.Exists ("/sdcard/witch_flight")) {
-					System.IO.Directory.CreateDirectory (destination);
+				System.IO.Directory.CreateDirectory ("/sdcard/witch_flight");
 			}
 			if (System.IO.File.Exists (origin)) {
+				if (System.IO.File.Exists(destination)) {
+					System.IO.File.Delete(destination);
+				}
 				System.IO.File.Move (origin, destination);
 				AndroidJavaClass playerClass = new AndroidJavaClass ("com.unity3d.player.UnityPlayer");
 				AndroidJavaObject activity = playerClass.GetStatic<AndroidJavaObject> ("currentActivity");		
