@@ -22,10 +22,10 @@ public class RandomEnemy : BaseEnemy {
 
 		count++;
 
-		if (count % 60 == 1) {
+		if (count % 70 == 1) {
 			Vector2 toPlayer = (player.transform.position - transform.position);
-			direct = (toPlayer + new Vector2 (Random.Range (-0.5f, 0.5f), Random.Range (-0.5f, 0.5f))).normalized * speed * Time.deltaTime;
+			direct = (toPlayer + new Vector2 (Random.Range (-0.5f, 0.5f), Random.Range (-0.5f, 0.5f))).normalized * speed;
 		}
-		base.r2d.velocity = base.r2d.velocity * 0.8f + direct;
+		base.r2d.velocity = base.r2d.velocity * 0.9f + direct;
 	}
 }

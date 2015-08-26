@@ -9,7 +9,7 @@ public class SideEnemy :BaseEnemy {
 	// Use this for initialization
 	new public void Start () {
 		base.Start ();
-		float randX = Random.Range (-0.3f, -0.3f);
+		float randX = Random.Range (-0.3f, 0.3f);
 		float randY = Random.Range (-4.0f, 0.0f);
 		toRight = (randX > 0);
 		if (toRight) {
@@ -23,9 +23,9 @@ public class SideEnemy :BaseEnemy {
 	new public void Update () {
 		base.Update ();
 		if (toRight) {
-			base.r2d.velocity = new Vector2 (2, -0.5f) * speed * Time.deltaTime;
+			base.r2d.velocity = new Vector2 (2, -0.5f).normalized * speed;
 		} else {
-			base.r2d.velocity = new Vector2 (-2, -0.5f) * speed * Time.deltaTime;
+			base.r2d.velocity = new Vector2 (-2, -0.5f).normalized * speed;
 		}
 	}
 }

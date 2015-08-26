@@ -35,12 +35,12 @@ public class Player : MonoBehaviour {
 
 		float rad = Mathf.Deg2Rad * angle * 3.0f;
 		if (Input.GetMouseButton (0)) {
-			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed * Time.deltaTime;
+			r2d.velocity = new Vector2(-Mathf.Sin(rad * 3.0f), 0.4f).normalized * speed;
 			angle = originalAngle;
 			anim.SetBool("is_dash", true);
 		} else {
 			if (transform.position.y >= -4.0f) {
-				r2d.velocity = new Vector2(0, -1) * (speed * Time.deltaTime * 0.5f);
+				r2d.velocity = new Vector2(0, -1) * speed * 0.3f;
 			} else {
 				r2d.velocity = new Vector2(0, 0);
 			}
@@ -73,6 +73,7 @@ public class Player : MonoBehaviour {
 
 	void dead() {
 		//  Capture Display on player dying.
+		enabled = false;
 		StartCoroutine(ScreenShotBridge.SaveScreenShot("capture.png", false, afterCapture));
 	}
 
