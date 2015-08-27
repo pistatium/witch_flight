@@ -54,6 +54,7 @@ public class GameController : BaseGameController {
 
 	public void gameover() {
 		string finalScore = scoreLabel.text;
+		new ScoreManager ().saveScore (int.Parse (finalScore));
 		scoreLabel.enabled = false;
 		finalLabel.text = "Score: " + finalScore;
 		gameOverPanel.transform.localScale = new Vector3(1, 1, 0);
