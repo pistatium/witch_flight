@@ -68,10 +68,9 @@ public class GameController : BaseGameController {
 	}
 
 	void share() {
-		string text = "#WitchFlight";
+		string text = "#WitchFlight \n";
 		string url = "http://pistatium.github.io/witch_flight";
 		string texture_url = ScreenShotBridge.getCapturePath ("capture.png");
-		Debug.Log (texture_url);
 		SocialConnector.Share (text, url, texture_url);
 	}
 

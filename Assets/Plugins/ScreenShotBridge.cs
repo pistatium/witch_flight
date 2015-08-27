@@ -8,16 +8,20 @@ public class ScreenShotBridge
 
 	static public string getCapturePath(string fileName) {
 		if (Application.platform == RuntimePlatform.Android) {
+			moveScreenShotToShare(fileName);
 			return "/sdcard/witch_flight/" + fileName;
 		} else {
 			return Application.persistentDataPath + "/" + fileName;
 		}
 	}
 
-	public static IEnumerator SaveScreenShot(string fileName,bool isScreenShotWithDateTime,ScreenShotDelegate callBack)
-	{
-		yield return new WaitForEndOfFrame ();
+	public static IEnumerator saveScreenShot(string fileName, ScreenShotDelegate callBack) {
 		Application.CaptureScreenshot (fileName);
+		yield return new WaitForEndOfFrame ();
+		callBack(true);
+	}
+
+	private static void moveScreenShotToShare(string fileName) {
 		if (Application.platform == RuntimePlatform.Android) {
 			#if UNITY_ANDROID
 			string origin = System.IO.Path.Combine (Application.persistentDataPath, fileName);
@@ -37,7 +41,5 @@ public class ScreenShotBridge
 			}
 			#endif
 		}
-		callBack(true);
-
 	}
 }

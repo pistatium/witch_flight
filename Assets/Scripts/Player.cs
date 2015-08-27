@@ -74,7 +74,7 @@ public class Player : MonoBehaviour {
 	void dead() {
 		//  Capture Display on player dying.
 		enabled = false;
-		StartCoroutine(ScreenShotBridge.SaveScreenShot("capture.png", false, afterCapture));
+		StartCoroutine(ScreenShotBridge.saveScreenShot("capture.png", afterCapture));
 	}
 
 	void afterCapture(bool isSuccess) {
