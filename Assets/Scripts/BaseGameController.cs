@@ -34,4 +34,15 @@ public class BaseGameController : MonoBehaviour {
 			Debug.Log("Platform not supported");
 		}
 	}
+
+	protected void startAds() {
+		if(Advertisement.isReady ()) {
+			Advertisement.Show(null, new ShowOptions {
+				pause = true,
+				resultCallback = result => {
+					Application.LoadLevel ("Main");
+				}
+			});
+		}
+	}
 }

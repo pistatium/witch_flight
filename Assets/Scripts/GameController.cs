@@ -12,6 +12,8 @@ public class GameController : BaseGameController {
 	public Text finalLabel;
 	public Image gameOverPanel;
 
+	private bool isShared = false;
+
 	void Awake() {
 		base.initAds ();
 		base.setupWindow (cam);
@@ -42,6 +44,7 @@ public class GameController : BaseGameController {
 	}
 
 	public void onClickShare() {
+		isShared = true;
 		share();
 	}
 
@@ -49,7 +52,11 @@ public class GameController : BaseGameController {
 		Application.LoadLevel ("HomeScene");
 	}
 	public void onClickPlay() {
-		Application.LoadLevel ("Main");
+		if (isShared == false && Random.Range (-3.0f, 1.0f) > 0) {
+			base.startAds ();
+		} else {
+			Application.LoadLevel ("Main");
+		}
 	}
 
 	public void gameover() {
@@ -58,14 +65,6 @@ public class GameController : BaseGameController {
 		scoreLabel.enabled = false;
 		finalLabel.text = "Score: " + finalScore;
 		gameOverPanel.transform.localScale = new Vector3(1, 1, 0);
-		if(Advertisement.isReady ()) {
-			//			Advertisement.Show(null, new ShowOptions {
-			//				pause = true,
-			//				resultCallback = result => {
-			//					Application.LoadLevel ("Main");
-			//				}
-			//			});
-		}
 	}
 
 	void share() {
