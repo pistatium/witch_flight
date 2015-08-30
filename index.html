@@ -1,5 +1,5 @@
 <!doctype html>
-
+<html xmlns:og="http://ogp.me/ns#" lang="ja">
 <meta charset="utf-8">
 <title>WitchFlight - Unity Simple action game.</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,7 +7,7 @@
 <meta property="og:url" content="http://pistatium.github.io/witch_flight/">
 <meta property="og:image" content="http://pistatium.github.io/witch_flight/images/banner.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="">
+<meta property="og:site_name" content="WitchFlight">
 
 <style>
     @import url(https://fonts.googleapis.com/css?family=Gloria+Hallelujah);
@@ -21,6 +21,7 @@
         color: #f5f5f5;
         padding: 10px auto;
         text-align:center;
+        font-size: 16px;
     }
     a {
         color: #ccf;
@@ -44,18 +45,26 @@
         margin-bottom: 10px;
     }
     .dl_buttons {
-        height: 100px;
+        overflow:auto;
+        text-align: center;
     }
     .dl_buttons div{
         box-sizing: border-box;
         float: left;
-        width: 49.5%;
-        height: 100px;
-        background: #fff;
+        width: 48%;
+        background: #aaa;
         border-radius: 10px;
         padding: 10px;
         margin: 1px;
     }
+    .dl_buttons .android {
+        background: #21D221;
+        color: #fff;
+        font-weight:bold;
+    }
+    .ios {
+        background: #ccc;
+    }   
 </style>
 
 
@@ -64,30 +73,31 @@
 </div>
 
 <div class="box">
-    <h2>About</h2>
+    <h2>About WitchFlight</h2>
     <p>
         WitchFlight is simple action game made with Unity.
     </p>
 </div>
 <div class="box">
     <h2>Get here</h2>
-    <p>
-        <b>Android: Comming soon...</b><br>
-        <b>iOS: Comming soon...</b>
-    </p>
-    <!--
     <div class="dl_buttons">
-        <div>
-            Android
-        </div>
+        <a href="https://play.google.com/store/apps/details?id=com.appspot.pistatium.witchflight">
+            <div class="android">
+                Android
+                <img src="images/android.png">
+                Download 
+            </div>
+        </a>
         <div>
             iOS
+            <img src="images/apple.png">
+            Comming soon...
         </div>
     </div>
-    -->
 </div>
 
 
 <div class="footer box">
     ©2015 <a href="kimihiro-n.appspot.com">pistatium</a>.
 </div>
+</html>
